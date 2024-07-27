@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>watch</title>
-    //Internal css styles
+
+    <!-- Css styles -->
     <style>
         *{
             margin: 0;
@@ -29,7 +30,6 @@
             height: 300px;
             width: 300px;
             border-radius: 50%;
-            /* background-color: rgb(255,255,255,0.1); */
             border: 2px solid rgb(255,255,255,0.25);
             box-shadow: 0px 0px 30px rgba(240, 240, 237, 0.9);
             display: flex;
@@ -42,7 +42,6 @@
             height: 150px;
             width: 150px;
             border-radius: 50%;
-            /* background-color: rgb(255,255,255,0.1); */
             border: 2px solid rgb(255,255,255,0.25);
             box-shadow: 0px 0px 30px rgb(0,0,0,0.9);
             display: flex;
@@ -74,21 +73,52 @@
             display: flex;
             justify-content: center;
             align-items: flex-end;
+            z-index: 2;
         }
         .hand i{
             position: absolute;
             height: var(--hgt);
+            
             width: 4px;
             border-radius: 30%;
             background-color: var(--clr);
         }
 
+        #TimeDate{text-align: center;
+            height: fit-content;
+            width: fit-content;
+            background-color: rgb(255, 255, 255,0.05);
+            position: relative;
+            border-radius: 50%;
+            padding: 5px;
+             top: -30px;
+            left: -25px;
+            z-index: 1;
+            background-color: black;
+            color: white;
+            
+            background-color: black;
+            
+        }
+
+        h1{  
+            color:black; 
+             position: relative; 
+              left: 37px;
+             top: 30px;
+            text-shadow: 5px 5px 5px ;
+        }
+        
     </style>
 </head>
 <body id="A">
+    
    <div class="container">
     <div class="clock">
         <div class="gls">
+
+            <h1 >Njs</h1>
+            <div id="TimeDate"></div>
 
         <div style="--clr:maroon; --hgt:55px;" class="hand" id="hour"><i></i></div>
         <div style="--clr: black; --hgt:70px " class="hand" id="min"><i></i></div>
@@ -110,7 +140,8 @@
     </div>
     
     </div>
-// JavaScript
+    
+     <!-- Javascript -->
     <script>
         let hr=document.getElementById('hour');
         let min=document.getElementById('min');
@@ -134,14 +165,14 @@
             sec.style.transform=`rotate(${sRotation}deg)`;
         }
         setInterval(displayTime,1000);
-//theams enables light(6am) and dark mode(6pm)
+
         function theam(){
         let date=new Date();
         let h=date.getHours();
         
         var a=5;
         var b=18;
-        // console.log(h);
+        
         if(a<h && b>h){
             document.getElementById('A').style.backgroundColor="white";
         }else{
@@ -152,7 +183,39 @@
 
         setInterval(theam,1000);
        
-       
+          //getting day
+        var day;
+        switch (new Date().getDay())
+        {
+            case 0:
+                day="Sun";
+                break;
+            case 1:
+                day="Mon";
+                break;
+            case 2:
+                day="Tue";
+                break;
+            case 3:
+                day="Wed";
+                break;
+            case 4:
+                day="Thu";
+                break;
+            case 5:
+                day="Fri";
+                break;
+            case 6:
+                day="Sat";    
+        }
+        var date=new Date();
+        var d=date.getDate();
+        var m=date.toLocaleString('default', { month: 'long' })
+        var y=date.getFullYear();
+
+        document.getElementById("TimeDate").innerHTML=day+" "+d+"th"+"<br>"+(m)+" "+y;
+
+        
     </script>
 </body>
 </html>
