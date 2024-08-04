@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link rel="stylesheet" href="ResumeBuilder.css">
+  
+</head>
+<body>
+
+<div id="container" >
+  <div id="glass"></div>
+  <div class="sidebar">
+        <h2 style="text-align: center;">Available Sections</h2>
+
+        <button class="opt" onclick="Header()"><b>Add-Header</b></button>
+        <button class="opt" onclick="RmHeader()"><b>Remmove-Header</b></button>
+        <button class="opt" onclick="Text_Area()"><b>Add-Text-Area</b></button>
+        <button class="opt" onclick="RmText_Area()"><b>Remove-Text-Area</b></button>
+        <button class="opt" onclick="Input_Box()"><b>Add-Input-Box</b></button>
+        <button class="opt" onclick="RmInput_Box()"><b>Remove-Input-Box</b></button>
+        <button class="opt" onclick="Skill_Range()"><b>Add-Skill&Range</b></button>
+        <button class="opt" onclick="RmSkill_Range()"><b>Remove-Skill&Range</b></button>
+        
+  </div>
+    
+    <div id="a4">
+      <h1 class="radial-text">Resume Builder</h1>
+        <!--For Name block-->
+       <div  style="display: flex; justify-content: center;">
+         <input id="name" type="text" name="name" placeholder="Name">
+       </div>
+
+       <!---Contact-->
+       <div id="contact" style="display: flex; justify-content: space-evenly;">
+           Mobile:<input type="number" name="number">
+           |Email:<input type="email" name="email">
+           |DOB:<input type="date" name="date">
+       </div>
+
+       <hr style="background-color:rgb(0, 119, 255); width: 98%; padding-top: 1px; ">
+
+       <!---Objective-->
+       <div id="obj">
+        <b style="position: relative; color: rgb(0, 119, 255);">Objective:</b>
+        <textarea name="Objective" id="" placeholder="Write your objective here. You can drag the box how you want" maxlength="300"></textarea>
+       </div>
+
+       <!---Experience-->
+       <div id="exp" style="display: inline;">
+        Experience: <input type="text" placeholder="Fresher/years of experience">
+       </div>
+
+       <!---Skils-->
+       <div id="skil" style="display: block;">TechnicalSkills: <br> </div>
+
+       <!---Education-->
+       <div id="Education">
+        <b style="position: relative; color: rgb(0, 119, 255);">Qualification:</b>
+        <textarea name="Qualification"  
+        placeholder="Write your Qualification detals here. You can drag the box how you want" 
+        maxlength="500"></textarea>
+       </div>
+
+       <!---Projets-->
+       <div id="project">
+        <b style="position: relative; color: rgb(0, 119, 255);">Projects:</b>
+        <textarea name="Projects" id="" maxlength="500">
+            Project-Name:
+            roles&Responsibilities:
+        </textarea>
+
+    </div>
+      
+  </div>
+    <button onclick="window.print()" id="exportButton"><b style="filter: drop-shadow(0px 1px 0px white); font-weight: 900;">Export as pdf</b></button>
+</div>
+
+<script src="ResumeBuilder.js"></script>
+</body>
+</html>
